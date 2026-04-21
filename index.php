@@ -37,6 +37,19 @@ if (isset($_POST['registro'])) {
 
 <!DOCTYPE html>
 <html lang="es">
+<header>
+    <div class="logo">
+        <img src="ugb_logo.png" alt="UGB Logo">
+    </div>
+    <nav>
+        <a href="index.php">Inicio</a>
+        <a href="#">Institucional</a>
+        <a href="#">Admisiones</a>
+        <a href="#">Vida Universitaria</a>
+        <a href="#">Investigación</a>
+    </nav>
+</header>
+
 <head>
     <meta charset="UTF-8">
     <title>Registro/Login - UGB</title>
