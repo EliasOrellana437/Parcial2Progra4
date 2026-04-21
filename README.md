@@ -1,5 +1,5 @@
-Mienbros; Elias Ernesto Orellana Vazquez
+Miembros; Elias Ernesto Orellana Vazquez
           Ariel Adolfo Diaz Sosa
-          Cecia Madia Avalos Diaz 
+          Cesia Madai Avalos Diaz 
 
   
