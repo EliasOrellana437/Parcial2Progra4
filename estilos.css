@@ -53,6 +53,10 @@ th, td {
 .error {
     color: red;
 }
+.logo img {
+    max-width: 200px;   /* ajusta el ancho máximo */
+    height: auto;       /* mantiene proporción */
+}
 
 header {
     background: #1C21D1; /* Azul institucional */
