@@ -2,11 +2,11 @@
 session_start();
 include 'conexion.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+// LOGIN
+if (isset($_POST['login'])) {
     $usuario = $_POST['usuario'];
     $clave = $_POST['clave'];
 
-    // Buscar usuario en la tabla usuarios_admin
     $query = "SELECT * FROM usuarios_admin WHERE usuario='$usuario' AND clave='$clave'";
     $resultado = mysqli_query($conexion, $query);
 
@@ -15,7 +15,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: dashboard.php");
         exit();
     } else {
-        $error = "Usuario o contraseña incorrectos";
+        $error_login = "Usuario o contraseña incorrectos";
+    }
+}
+
+// REGISTRO
+if (isset($_POST['registro'])) {
+    $usuario = $_POST['nuevo_usuario'];
+    $clave = $_POST['nueva_clave'];
+    $facultad = $_POST['facultad'];
+
+    $query = "INSERT INTO usuarios_admin (usuario, clave, facultad) 
+              VALUES ('$usuario', '$clave', '$facultad')";
+    if (mysqli_query($conexion, $query)) {
+        $exito_registro = "Usuario registrado correctamente, ahora puede iniciar sesión.";
+    } else {
+        $error_registro = "Error al registrar usuario.";
     }
 }
 ?>
@@ -24,20 +39,50 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Login - UGB</title>
+    <title>Registro/Login - UGB</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <h1>Ingreso al sistema</h1>
-    <form method="POST" action="">
-        <label>Usuario:</label>
-        <input type="text" name="usuario" required>
-        
-        <label>Contraseña:</label>
-        <input type="password" name="clave" required>
-        
-        <button type="submit">Ingresar</button>
-    </form>
-    <?php if(isset($error)) echo "<p class='error'>$error</p>"; ?>
+    <h1>Sistema de Inscripción UGB</h1>
+
+    <!-- FORMULARIO DE REGISTRO -->
+    <section>
+        <h2>Registro de nuevo usuario</h2>
+        <form method="POST" action="">
+            <label>Usuario:</label>
+            <input type="text" name="nuevo_usuario" required>
+
+            <label>Contraseña:</label>
+            <input type="password" name="nueva_clave" required>
+
+            <label>Facultad:</label>
+            <select name="facultad" required>
+                <option value="Ingeniería">Ingeniería</option>
+                <option value="Ciencias Económicas">Ciencias Económicas</option>
+                <option value="Derecho">Derecho</option>
+            </select>
+
+            <button type="submit" name="registro">Registrar</button>
+        </form>
+        <?php 
+        if(isset($exito_registro)) echo "<p class='exito'>$exito_registro</p>"; 
+        if(isset($error_registro)) echo "<p class='error'>$error_registro</p>"; 
+        ?>
+    </section>
+
+    <!-- FORMULARIO DE LOGIN -->
+    <section>
+        <h2>Ya registrado? Inicie sesión</h2>
+        <form method="POST" action="">
+            <label>Usuario:</label>
+            <input type="text" name="usuario" required>
+            
+            <label>Contraseña:</label>
+            <input type="password" name="clave" required>
+            
+            <button type="submit" name="login">Ingresar</button>
+        </form>
+        <?php if(isset($error_login)) echo "<p class='error'>$error_login</p>"; ?>
+    </section>
 </body>
 </html>
