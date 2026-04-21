@@ -56,47 +56,47 @@ if (isset($_POST['registro'])) {
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+    <body>
     <h1>Sistema de Inscripción UGB</h1>
 
-    <!-- FORMULARIO DE REGISTRO -->
-    <section>
-        <h2>Registro de nuevo usuario</h2>
-        <form method="POST" action="">
-            <label>Usuario:</label>
-            <input type="text" name="nuevo_usuario" required>
+    <div class="contenedor">
+        <!-- FORMULARIO DE REGISTRO -->
+        <section class="formulario">
+            <h2>Registro de nuevo usuario</h2>
+            <form method="POST" action="">
+                <label>Usuario:</label>
+                <input type="text" name="nuevo_usuario" required>
 
-            <label>Contraseña:</label>
-            <input type="password" name="nueva_clave" required>
+                <label>Contraseña:</label>
+                <input type="password" name="nueva_clave" required>
 
-            <label>Facultad:</label>
-            <select name="facultad" required>
-                <option value="Ingeniería">Ingeniería</option>
-                <option value="Ciencias Económicas">Ciencias Económicas</option>
-                <option value="Derecho">Derecho</option>
-            </select>
+                <label>Facultad:</label>
+                <select name="facultad" required>
+                    <option value="Ingeniería">Ingeniería</option>
+                    <option value="Ciencias Económicas">Ciencias Económicas</option>
+                    <option value="Derecho">Derecho</option>
+                </select>
 
-            <button type="submit" name="registro">Registrar</button>
-        </form>
-        <?php 
-        if(isset($exito_registro)) echo "<p class='exito'>$exito_registro</p>"; 
-        if(isset($error_registro)) echo "<p class='error'>$error_registro</p>"; 
-        ?>
-    </section>
+                <button type="submit" name="registro">Registrar</button>
+            </form>
+        </section>
 
-    <!-- FORMULARIO DE LOGIN -->
-    <section>
-        <h2>Ya registrado? Inicie sesión</h2>
-        <form method="POST" action="">
-            <label>Usuario:</label>
-            <input type="text" name="usuario" required>
-            
-            <label>Contraseña:</label>
-            <input type="password" name="clave" required>
-            
-            <button type="submit" name="login">Ingresar</button>
-        </form>
-        <?php if(isset($error_login)) echo "<p class='error'>$error_login</p>"; ?>
-    </section>
+        <!-- FORMULARIO DE LOGIN -->
+        <section class="formulario">
+            <h2>Ya registrado? Inicie sesión</h2>
+            <form method="POST" action="">
+                <label>Usuario:</label>
+                <input type="text" name="usuario" required>
+                
+                <label>Contraseña:</label>
+                <input type="password" name="clave" required>
+                
+                <button type="submit" name="login">Ingresar</button>
+            </form>
+        </section>
+    </div>
+</body>
+
 <footer>
     <p>© 2026 Universidad Gerardo Barrios - El Salvador</p>
     <p>Contacto: info@ugb.edu.sv | Tel: (503) 2608-xxxx</p>
