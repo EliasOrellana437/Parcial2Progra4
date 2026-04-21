@@ -21,6 +21,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!DOCTYPE html>
 <html lang="es">
+    <header>
+    <div class="logo">
+        <img src="ugb_logo.png" alt="UGB Logo">
+    </div>
+    <nav>
+        <a href="index.php">Inicio</a>
+        <a href="#">Institucional</a>
+        <a href="#">Admisiones</a>
+        <a href="#">Vida Universitaria</a>
+        <a href="#">Investigación</a>
+    </nav>
+</header>
 <head>
     <meta charset="UTF-8">
     <title>Dashboard - UGB</title>
@@ -60,5 +72,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         ?>
     </table>
+<footer>
+    <p>© 2026 Universidad Gerardo Barrios - El Salvador</p>
+    <p>Contacto: info@ugb.edu.sv | Tel: (503) 2608-xxxx</p>
+</footer>
+
 </body>
 </html>
