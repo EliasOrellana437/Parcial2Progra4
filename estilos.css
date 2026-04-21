@@ -1,6 +1,31 @@
 body {
     font-family: Arial, sans-serif;
     background: #f4f4f4;
+    margin: 0;
+    text-align: center; /* centra el texto principal */
+}
+
+.contenedor {
+    display: flex;
+    justify-content: center; /* centra horizontalmente */
+    gap: 50px;               /* espacio entre los dos formularios */
+    margin-top: 30px;
+}
+
+.formulario {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;            /* ancho fijo para que se vean proporcionados */
+    text-align: left;        /* alinear etiquetas y campos dentro del formulario */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
     margin: 20px;
 }
 
