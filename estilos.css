@@ -53,3 +53,28 @@ th, td {
 .error {
     color: red;
 }
+
+header {
+    background: #1C21D1; /* Azul institucional */
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+header nav a:hover {
+    color: #FF6933; /* Naranja acento */
+}
+
+footer {
+    background: #000000; /* Negro institucional */
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}

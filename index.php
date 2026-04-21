@@ -97,5 +97,10 @@ if (isset($_POST['registro'])) {
         </form>
         <?php if(isset($error_login)) echo "<p class='error'>$error_login</p>"; ?>
     </section>
+<footer>
+    <p>© 2026 Universidad Gerardo Barrios - El Salvador</p>
+    <p>Contacto: info@ugb.edu.sv | Tel: (503) 2608-xxxx</p>
+</footer>
+
 </body>
 </html>
