@@ -6,7 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $usuario = $_POST['usuario'];
     $clave = $_POST['clave'];
 
-    $query = "SELECT * FROM usuarios WHERE usuario='$usuario' AND clave='$clave'";
+    // Buscar usuario en la tabla usuarios_admin
+    $query = "SELECT * FROM usuarios_admin WHERE usuario='$usuario' AND clave='$clave'";
     $resultado = mysqli_query($conexion, $query);
 
     if (mysqli_num_rows($resultado) > 0) {

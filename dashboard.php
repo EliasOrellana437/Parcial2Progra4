@@ -9,13 +9,12 @@ if (!isset($_SESSION['usuario'])) {
 
 // Insertar estudiante
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nombre = $_POST['nombre'];
-    $carrera = $_POST['carrera'];
-    $genero = $_POST['genero'];
-    $beca = isset($_POST['beca']) ? 1 : 0;
+    $nombre = $_POST['nombre_completo'];
+    $correo = $_POST['correo_institucional'];
+    $telefono = $_POST['telefono'];
 
-    $query = "INSERT INTO estudiantes (nombre, carrera, genero, beca) 
-              VALUES ('$nombre', '$carrera', '$genero', '$beca')";
+    $query = "INSERT INTO Estudiantes (nombre_completo, correo_institucional, telefono) 
+              VALUES ('$nombre', '$correo', '$telefono')";
     mysqli_query($conexion, $query);
 }
 ?>
@@ -31,22 +30,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <h1>Registro de Estudiantes Nuevos</h1>
 
     <form method="POST" action="">
-        <label>Nombre:</label>
-        <input type="text" name="nombre" required>
+        <label>Nombre completo:</label>
+        <input type="text" name="nombre_completo" required>
 
-        <label>Carrera:</label>
-        <select name="carrera" required>
-            <option value="Ingeniería en Sistemas">Ingeniería en Sistemas</option>
-            <option value="Administración de Empresas">Administración de Empresas</option>
-            <option value="Derecho">Derecho</option>
-        </select>
+        <label>Correo institucional:</label>
+        <input type="email" name="correo_institucional" required>
 
-        <label>Género:</label>
-        <input type="radio" name="genero" value="Masculino" required> Masculino
-        <input type="radio" name="genero" value="Femenino" required> Femenino
-
-        <label>Beca:</label>
-        <input type="checkbox" name="beca"> Aplica a beca
+        <label>Teléfono:</label>
+        <input type="text" name="telefono">
 
         <button type="submit">Registrar</button>
     </form>
@@ -55,18 +46,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <table>
         <tr>
             <th>Nombre</th>
-            <th>Carrera</th>
-            <th>Género</th>
-            <th>Beca</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
         </tr>
         <?php
-        $result = mysqli_query($conexion, "SELECT * FROM estudiantes ORDER BY nombre ASC");
+        $result = mysqli_query($conexion, "SELECT * FROM Estudiantes ORDER BY nombre_completo ASC");
         while ($fila = mysqli_fetch_assoc($result)) {
             echo "<tr>
-                    <td>{$fila['nombre']}</td>
-                    <td>{$fila['carrera']}</td>
-                    <td>{$fila['genero']}</td>
-                    <td>" . ($fila['beca'] ? 'Sí' : 'No') . "</td>
+                    <td>{$fila['nombre_completo']}</td>
+                    <td>{$fila['correo_institucional']}</td>
+                    <td>" . ($fila['telefono'] ? $fila['telefono'] : 'N/A') . "</td>
                   </tr>";
         }
         ?>
